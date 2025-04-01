@@ -2,55 +2,62 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-sans">
-      <header></header>
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-display">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-display font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="font-sans">
+      <nav className="p-6 fixed top-0 inset-x-0 z-10000">
+        <svg
+          width="33"
+          height="27"
+          viewBox="0 0 33 27"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M14.0703 26.5273C4.99999 26.5273 0.201159 23.6621 0.763659 18.582L11.6445 17.9316C10.5547 21.6406 11.6445 23.873 14.7383 23.873C17.1113 23.873 18.7637 22.5195 18.7637 20.6914C18.7637 19.3379 17.8848 18.459 14.1055 16.7891L10.3437 15.1191C6.5996 13.4492 5.12303 11.6562 5.12303 8.84375C5.12303 3.44727 10.6953 0.863281 19.7832 0.863281C28.8359 0.863281 33.5293 3.69336 32.6504 8.65039L22.9648 9.40625C23.8437 5.52148 22.7012 3.53516 19.5019 3.53516C16.9355 3.53516 15.0898 4.69531 15.0898 6.41797C15.0898 7.57812 15.793 8.31641 19.7832 10.0039L23.8437 11.709C27.8691 13.3965 29.1348 15.1719 29.1348 17.9316C29.1348 23.6094 23.5625 26.5273 14.0703 26.5273Z"
+            fill="#FF4C7F"
+          />
+        </svg>
+      </nav>
+      <header className="h-svh relative flex flex-col">
+        <video
+          width="1920"
+          height="1080"
+          autoPlay
+          playsInline
+          loop
+          muted
+          className="absolute size-full object-cover "
+        >
+          <source src="./landing.webm" type="video/webm" />
+          Your browser does not support the video tag.
+        </video>
+        <div className="mt-auto p-6 relative z-10 text-white text-center">
+          <h1 className="uppercase font-display font-black text-4xl">
+            Strikeout
+          </h1>
+          <h2 className="font-bold text-lg">Sending startups to stardom</h2>
+          <button className="p-4">Vote now</button>
         </div>
+      </header>
+      <main className="flex flex-col text-xl px-6 py-6">
+        <div className="flex flex-col gap-4 mb-12">
+          <p className="font-bold">
+            9 in 10 startups fail, with a significant portion failing within the
+            first few years, often due to a lack of funding.
+          </p>
+          <p className="font-bold">
+            Strikeout something something solvees this idk.
+          </p>
+        </div>
+        <article>
+          <h2 className="font-bold uppercase text-sm mb-4">Past contestants</h2>
+          <ul>
+            <li>
+              <div className="w-full h-48 bg-slate-500 text-white p-4">
+                <h3>Hangover</h3>
+              </div>
+            </li>
+          </ul>
+        </article>
       </main>
       <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
         <a

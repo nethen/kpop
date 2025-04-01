@@ -43,12 +43,12 @@ const rightGothic = localFont({
     {
       path: "./fonts/PPRightGothic-SpatialBlackItalic.woff",
       weight: "900",
-      style: "italic",
+      // style: "italic",
     },
     {
       path: "./fonts/PPRightGothic-SpatialBlackItalic.woff2",
       weight: "900",
-      style: "italic",
+      // style: "italic",
     },
   ],
   variable: "--font-right-gothic",
