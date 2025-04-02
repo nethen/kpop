@@ -29,6 +29,15 @@ export async function getTotalVotes() {
   }
 }
 
+export async function getPrizePool() {
+  try {
+    const response = await sql`SELECT SUM(investment_amount) FROM prize_pool`;
+    return response[0]?.sum || 0;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 export async function fetchValueFromDatabase(id: string) {
   try {
     const result = await sql`

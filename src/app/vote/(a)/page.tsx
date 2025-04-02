@@ -10,7 +10,7 @@ export default async function Page() {
 
   return (
     <>
-      <div className="flex flex-col text-center gap-4 mb-16">
+      <div className="flex flex-col text-center gap-4 mb-20">
         <h2 className="font-bold text-2xl">Select your favorite startup</h2>
         <section className="flex flex-col gap-4">
           <div>
