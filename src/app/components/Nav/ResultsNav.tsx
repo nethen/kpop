@@ -20,7 +20,7 @@ export const ResultsNav = () => {
       <ul className="flex flex-row justify-between items-center gap-2">
         <li className="w-full relative">
           <motion.button
-            className="w-full p-2"
+            className="w-full p-2 cursor-pointer"
             onClick={() => handlePageChange("")}
             initial={false}
             animate={{ color: page == "" ? "var(--theme-dark)" : "#fff" }}
@@ -31,7 +31,7 @@ export const ResultsNav = () => {
         </li>
         <li className="w-full relative">
           <motion.button
-            className="w-full p-2"
+            className="w-full p-2 cursor-pointer"
             onClick={() => handlePageChange("/results")}
             initial={false}
             animate={{

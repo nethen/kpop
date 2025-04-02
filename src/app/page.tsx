@@ -1,4 +1,7 @@
+"use client";
+import { circOut } from "motion";
 import CrystalButton from "./components/CrystalButton/CrystalButton";
+import { motion } from "motion/react";
 
 export default function Home() {
   return (
@@ -18,37 +21,99 @@ export default function Home() {
         </svg>
       </nav> */}
       <header className="h-[90svh] relative flex flex-col">
-        <video
-          width="1920"
-          height="1080"
-          autoPlay
-          playsInline
-          loop
-          muted
-          className="absolute size-full object-cover "
+        <motion.div
+          className="absolute size-full"
+          initial={{
+            opacity: 0,
+            y: 20,
+          }}
+          animate={{
+            opacity: 1,
+            y: 0,
+            transition: {
+              duration: 2,
+              ease: circOut,
+            },
+          }}
         >
-          <source src="./landing.webm" type="video/webm" />
-          Your browser does not support the video tag.
-        </video>
+          <motion.video
+            width="1920"
+            height="1080"
+            autoPlay
+            playsInline
+            loop
+            muted
+            className="absolute size-full object-cover "
+          >
+            <source src="./landing.webm" type="video/webm" />
+            Your browser does not support the video tag.
+          </motion.video>
+          <motion.div className="absolute size-full bg-gradient-to-t from-background to-transparent" />
+        </motion.div>
         <div className="mt-auto p-6 relative z-10 text-white text-center">
-          <h1 className="uppercase font-display font-black text-4xl">
+          <motion.h1
+            className="uppercase font-display font-black text-[clamp(1rem,13vw,5.5rem)] leading-none bg-blend-color"
+            initial={{
+              opacity: 0,
+              y: 20,
+              scale: 0.9,
+            }}
+            animate={{
+              opacity: 1,
+              y: 0,
+              scale: 1,
+              transition: {
+                duration: 1,
+                ease: circOut,
+              },
+            }}
+          >
             Strikeout
-          </h1>
-          <h2 className="font-bold text-lg">Sending startups to stardom</h2>
+          </motion.h1>
+          <motion.h2
+            className="font-bold text-xl tracking-wide"
+            initial={{
+              opacity: 0,
+              y: 20,
+              scale: 0.9,
+            }}
+            animate={{
+              opacity: 1,
+              y: 0,
+              scale: 1,
+              transition: {
+                duration: 1,
+                delay: 0.1,
+                ease: circOut,
+              },
+            }}
+          >
+            Sending startups to stardom
+          </motion.h2>
         </div>
       </header>
-      <main className="flex flex-col text-xl px-6 py-6">
-        <div className="flex flex-col gap-4 mb-12">
-          <p className="font-bold">
+      <main className="flex flex-col px-6 py-12">
+        <section className="flex flex-col gap-8 mb-12">
+          <p className="font-medium text-4xl">
             9 in 10 startups fail, with a significant portion failing within the
             first few years, often due to a lack of funding.
           </p>
-          <p className="font-bold">
-            For the hardest-working and most innovative startups, we&apos;re
-            giving them a chance to shine
+          <p className="font-medium text-4xl">
+            For the hardest-working and most diligent startups, we&apos;re
+            giving them a stage to shine.
           </p>
           <CrystalButton href="/invest" />
-        </div>
+        </section>
+        {/* <section>
+          <hgroup>
+            <h2 className="font-bold text-2xl mb-2">
+              Higher payouts with every round
+            </h2>
+            <p className="text-lg">
+              In our multi-stage bracket, all funds go towards the winning team
+            </p>
+          </hgroup>
+        </section> */}
         {/* <article>
           <h2 className="font-bold uppercase text-sm mb-4">Past contestants</h2>
           <ul>
@@ -60,53 +125,32 @@ export default function Home() {
           </ul>
         </article> */}
       </main>
-      {/* <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+      <footer className="relative h-[32rem] bg-gradient-to-b from-transparent to-theme-light p-4 flex flex-col overflow-hidden">
+        <svg
+          viewBox="0 0 45 36"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="absolute aspect-square h-[90vw] -bottom-1/4"
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+          <path
+            d="M18.8107 35.731C6.23759 35.731 -0.414439 31.7593 0.365286 24.7174L15.4481 23.8158C13.9374 28.9571 15.4481 32.0517 19.7366 32.0517C23.0261 32.0517 25.3165 30.1754 25.3165 27.6413C25.3165 25.7651 24.0982 24.5468 18.8594 22.232L13.645 19.9172C8.45494 17.6024 6.40816 15.117 6.40816 11.2184C6.40816 3.73787 14.1323 0.156006 26.7298 0.156006C39.2785 0.156006 45.7843 4.079 44.566 10.9503L31.1401 11.9981C32.3584 6.61311 30.7746 3.8597 26.3399 3.8597C22.7824 3.8597 20.2239 5.46789 20.2239 7.8558C20.2239 9.46398 21.1986 10.4874 26.7298 12.8265L32.3584 15.1901C37.9383 17.5293 39.6927 19.9903 39.6927 23.8158C39.6927 31.6862 31.9685 35.731 18.8107 35.731Z"
+            fill="url(#paint0_linear_1455_7)"
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer> */}
+          <defs>
+            <linearGradient
+              id="paint0_linear_1455_7"
+              x1="195.5"
+              y1="0"
+              x2="195.5"
+              y2="36"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop stopColor="var(--background)" />
+              <stop offset="1" stopColor="#FD9AB500" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </footer>
     </div>
   );
 }

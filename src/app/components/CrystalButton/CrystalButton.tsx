@@ -2,7 +2,10 @@
 import Link from "next/link";
 export const CrystalButton = ({ href }: { href: string }) => {
   return (
-    <Link className="flex items-stretch w-full cursor-pointer" href={href}>
+    <Link
+      className="mx-auto flex items-stretch w-fit cursor-pointer text-2xl"
+      href={href}
+    >
       <svg
         width="28"
         height="52"
@@ -85,7 +88,7 @@ export const CrystalButton = ({ href }: { href: string }) => {
           </linearGradient>
         </defs>
       </svg>
-      <div className="flex justify-center items-center flex-auto bg-[linear-gradient(90deg,var(--theme-light)_0%,#FFD0DD_10%,#FFD0DD_90%,var(--theme-light)_100%)] text-theme-dark font-medium">
+      <div className="flex justify-center items-center px-8 flex-auto bg-[linear-gradient(90deg,var(--theme-light)_0%,#FFD0DD_10%,#FFD0DD_90%,var(--theme-light)_100%)] text-theme-dark font-medium">
         Invest now
       </div>
       <svg
