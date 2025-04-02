@@ -1,5 +1,4 @@
 "use client";
-import { NeonTest } from "@/app/components/Neon/NeonTest";
 import { getStartups } from "@/app/components/Neon/actions";
 import { useEffect, useState } from "react";
 
