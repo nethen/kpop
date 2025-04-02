@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { ResultsNav } from "../components/Nav/ResultsNav";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -48,6 +49,7 @@ export default function RootLayout({
         <main className="bg-background flex flex-col text-xl px-6 py-6 h-full overflow-auto">
           {children}
         </main>
+        <ResultsNav />
       </div>
     </div>
   );
