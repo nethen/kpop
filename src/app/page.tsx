@@ -3,7 +3,7 @@ import CrystalButton from "./components/CrystalButton/CrystalButton";
 export default function Home() {
   return (
     <div className="font-sans">
-      <nav className="p-6 fixed top-0 inset-x-0 z-10000">
+      {/* <nav className="p-6 fixed top-0 inset-x-0 z-10000">
         <svg
           width="33"
           height="27"
@@ -16,8 +16,8 @@ export default function Home() {
             fill="#FF4C7F"
           />
         </svg>
-      </nav>
-      <header className="h-svh relative flex flex-col">
+      </nav> */}
+      <header className="h-[90svh] relative flex flex-col">
         <video
           width="1920"
           height="1080"
@@ -44,9 +44,10 @@ export default function Home() {
             first few years, often due to a lack of funding.
           </p>
           <p className="font-bold">
-            Strikeout something something solvees this idk.
+            For the hardest-working and most innovative startups, we&apos;re
+            giving them a chance to shine
           </p>
-          <CrystalButton />
+          <CrystalButton href="/invest" />
         </div>
         {/* <article>
           <h2 className="font-bold uppercase text-sm mb-4">Past contestants</h2>

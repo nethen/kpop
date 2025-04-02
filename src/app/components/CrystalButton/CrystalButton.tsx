@@ -1,6 +1,8 @@
-export const CrystalButton = () => {
+"use client";
+import Link from "next/link";
+export const CrystalButton = ({ href }: { href: string }) => {
   return (
-    <button className="flex items-stretch w-full">
+    <Link className="flex items-stretch w-full cursor-pointer" href={href}>
       <svg
         width="28"
         height="52"
@@ -83,8 +85,8 @@ export const CrystalButton = () => {
           </linearGradient>
         </defs>
       </svg>
-      <div className="flex justify-center items-center bg-gradient-to-r flex-auto from-theme-light via-[#FFD0DD] text-theme-dark font-medium to-theme-light">
-        Vote now
+      <div className="flex justify-center items-center flex-auto bg-[linear-gradient(90deg,var(--theme-light)_0%,#FFD0DD_10%,#FFD0DD_90%,var(--theme-light)_100%)] text-theme-dark font-medium">
+        Invest now
       </div>
       <svg
         width="28"
@@ -166,7 +168,7 @@ export const CrystalButton = () => {
           </linearGradient>
         </defs>
       </svg>
-    </button>
+    </Link>
   );
 };
 

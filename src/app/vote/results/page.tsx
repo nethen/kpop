@@ -16,13 +16,13 @@ export default function Page() {
     }
   };
 
-  // Polling: fetch data every 0.5 seconds
+  // Polling: fetch data every 5 seconds
   useEffect(() => {
     fetchLiveData(); // Initial fetch
 
     const intervalId = setInterval(() => {
       fetchLiveData();
-    }, 500); // Refresh every 500 milliseconds (0.5 seconds)
+    }, 15000); // Refresh every 5000 milliseconds (5 seconds)
 
     // Cleanup the interval when the component unmounts
     return () => clearInterval(intervalId);
