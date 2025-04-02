@@ -1,6 +1,4 @@
-import Image from "next/image";
-
-export default function Home() {
+export default function Page() {
   return (
     <>
       <div className="flex flex-col text-center gap-4 mb-12">
