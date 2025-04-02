@@ -21,7 +21,7 @@ export default function Page() {
 
     const intervalId = setInterval(() => {
       fetchLiveData();
-    }, 15000); // Refresh every 5000 milliseconds (5 seconds)
+    }, 1000); // Refresh every 5000 milliseconds (5 seconds)
 
     // Cleanup the interval when the component unmounts
     return () => clearInterval(intervalId);

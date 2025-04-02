@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getStartups } from "../components/Neon/actions";
+import { getStartups } from "@/app/components/Neon/actions";
 export default async function Page() {
   // const router = useRouter();
 

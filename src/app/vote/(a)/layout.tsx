@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { ResultsNav } from "../components/Nav/ResultsNav";
+import { ResultsNav } from "../../components/Nav/ResultsNav";
 
 export const metadata: Metadata = {
   title: "Create Next App",

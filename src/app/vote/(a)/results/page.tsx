@@ -1,7 +1,7 @@
 "use client";
-import { NeonTest } from "@/app/components/Neon/NeonTest";
 import { getStartups, getTotalVotes } from "@/app/components/Neon/actions";
 import { useEffect, useState } from "react";
+import { motion } from "motion/react";
 
 export default function Page() {
   // const startups = await getStartups();
@@ -51,10 +51,7 @@ export default function Page() {
                         <p>Votes: {e.votes}</p>
                       </hgroup>
                     </div>
-                    <div
-                      className="bg-pink-300 h-4 rounded-full"
-                      style={{ width: (e.votes / totalVotes) * 100 + "%" }}
-                    />
+                    <MotionBar votes={e.votes} totalVotes={totalVotes} />
                   </li>
                 ))}
           </ul>
@@ -64,3 +61,19 @@ export default function Page() {
     </>
   );
 }
+const MotionBar = ({
+  votes,
+  totalVotes,
+}: {
+  votes: number;
+  totalVotes: number;
+}) => {
+  const percentage = (votes / totalVotes) * 100;
+  return (
+    <motion.div
+      className="bg-pink-300 h-2 rounded-full"
+      initial={{ width: "0%" }}
+      animate={{ width: totalVotes != 0 ? percentage + "%" : "0%" }}
+    />
+  );
+};
