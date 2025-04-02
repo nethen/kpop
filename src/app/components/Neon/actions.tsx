@@ -13,6 +13,15 @@ export async function getStartups() {
   }
 }
 
+export async function getTotalVotes() {
+  try {
+    const response = await sql`SELECT SUM(votes) FROM startups`;
+    return response[0]?.sum || 0;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 export async function fetchValueFromDatabase(id: string) {
   try {
     const result = await sql`
