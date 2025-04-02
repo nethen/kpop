@@ -35,14 +35,22 @@ export default function Page() {
       <div className="flex flex-col text-center gap-4 mb-12">
         <h2>Results</h2>
         <section>
-          <ul className="flex flex-col gap-4">
+          <ul className="flex flex-col gap-8">
             {startups &&
               startups
                 .sort((a, b) => b.votes - a.votes)
                 .map((e, i) => (
-                  <li key={`startup_item--${i}`} className="text-left">
-                    <h3 className="font-bold text-3xl">{e.name}</h3>
-                    <p>Votes: {e.votes}</p>
+                  <li
+                    key={`startup_item--${i}`}
+                    className="text-left flex flex-col gap-2"
+                  >
+                    <div className="flex gap-2">
+                      <div className="size-16 rounded-full bg-pink-500" />
+                      <hgroup>
+                        <h3 className="font-bold text-3xl">{e.name}</h3>
+                        <p>Votes: {e.votes}</p>
+                      </hgroup>
+                    </div>
                     <div
                       className="bg-pink-300 h-4 rounded-full"
                       style={{ width: (e.votes / totalVotes) * 100 + "%" }}

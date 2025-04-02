@@ -3,6 +3,13 @@ import { neon } from "@neondatabase/serverless";
 
 const sql = neon(`${process.env.DATABASE_URL}`);
 
+export async function isValidSlug(slug: string) {
+  const sql = neon(`${process.env.DATABASE_URL}`);
+  const result = await sql`SELECT COUNT(*) FROM startups WHERE slug = ${slug}`;
+  console.log(result[0].count > 0);
+  return result[0].count > 0;
+}
+
 export async function getStartups() {
   try {
     const response = await sql`SELECT * FROM startups`;

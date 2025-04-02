@@ -49,13 +49,13 @@ export const InvestModal = ({
       initial={{ opacity: 0 }}
       animate={{ opacity: isOpen ? 1 : 0 }}
       exit={{ opacity: 0 }}
-      className={`fixed inset-0 bg-zinc-950/80 p-8 ${
+      className={`fixed inset-0 bg-zinc-950/80 p-8 flex flex-col ${
         isOpen ? "pointer-events-auto" : "pointer-events-none"
       }`}
       onClick={() => handler()}
     >
       <div
-        className="bg-zinc-800 border border-zinc-700 p-8 rounded-xl"
+        className="bg-zinc-800 border border-zinc-700 p-8 rounded-xl my-auto"
         onClick={(e) => e.stopPropagation()}
       >
         <h3 className="text-2xl font-bold mb-2">Invest</h3>
