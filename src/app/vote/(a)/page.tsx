@@ -29,9 +29,9 @@ export default async function Page() {
             )}
           </div>
           <div className="flex justify-center items-center gap-4">
-            <div className="border-transparent border-r-[25vw] border-y-2 border-r-white h-0 w-0" />
+            <div className="border-transparent border-r-[clamp(3rem,25vw,12rem)] border-y-2 border-r-white h-0 w-0" />
             <span className="font-display">VS</span>
-            <div className="border-transparent border-l-[25vw] border-y-2 border-l-white h-0 w-0" />
+            <div className="border-transparent border-l-[clamp(3rem,25vw,12rem)] border-y-2 border-l-white h-0 w-0" />
           </div>
           <div>
             {startups && (
