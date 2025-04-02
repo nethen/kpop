@@ -1,24 +1,24 @@
 "use client";
-import { start } from "repl";
-import { getStartups, boost, fetchValueFromDatabase } from "./actions";
-import { useEffect, useState } from "react";
+import { boost } from "./actions";
+// import { useState } from "react";
 
 export const NeonTest = () => {
-  const [votes, setVotes] = useState<number>(0);
+  //   const [votes, setVotes] = useState<number>(0);
   //   const startups = getStartups();
-  useEffect(() => {
-    const fetchValue = async () => {
-      // Example: Fetch the initial value for the display
-      const initialValue = await fetchValueFromDatabase("0");
-      setVotes(initialValue);
-    };
-    // setVotes(startups && startups[0]);
-  }, []);
+  //   useEffect(() => {
+  //     const fetchValue = async () => {
+  //       // Example: Fetch the initial value for the display
+  //       const initialValue = await fetchValueFromDatabase("0");
+  //       setVotes(initialValue);
+  //     };
+
+  //     // setVotes(startups && startups[0]);
+  //   }, []);
 
   const handleClick = async () => {
     try {
       const updatedValue = await boost("0");
-      setVotes(updatedValue);
+      //   setVotes(updatedValue);
       console.log("Updated value:", updatedValue);
     } catch (error) {
       console.error("Error updating value:", error);
@@ -28,7 +28,7 @@ export const NeonTest = () => {
     <ul className="mt-auto flex flex-row gap-4 justify-center">
       <li>
         <button className="p-4 bg-red-500" onClick={async () => handleClick()}>
-          AI Dol boost {votes}
+          AI Dol boost
         </button>
       </li>
       <li>

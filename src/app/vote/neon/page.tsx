@@ -1,5 +1,4 @@
 import { NeonTest } from "@/app/components/Neon/NeonTest";
-import { neon } from "@neondatabase/serverless";
 import { getStartups } from "@/app/components/Neon/actions";
 
 export default async function Page() {

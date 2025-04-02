@@ -1,12 +1,11 @@
 "use client";
 import { NeonTest } from "@/app/components/Neon/NeonTest";
-import { neon } from "@neondatabase/serverless";
 import { getStartups } from "@/app/components/Neon/actions";
 import { useEffect, useState } from "react";
 
 export default function Page() {
   // const startups = await getStartups();
-  const [startups, setStartups] = useState<any[]>([]);
+  const [startups, setStartups] = useState<Record<string, any>[] | []>([]);
 
   const fetchLiveData = async () => {
     try {

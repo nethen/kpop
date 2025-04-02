@@ -1,4 +1,3 @@
-import Image from "next/image";
 import CrystalButton from "./components/CrystalButton/CrystalButton";
 
 export default function Home() {
