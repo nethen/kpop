@@ -16,7 +16,7 @@ export const ResultsNav = () => {
   };
 
   return (
-    <nav className="fixed bottom-8 inset-x-8 bg-zinc-900 border border-zinc-800 rounded-full p-1 z-10 font-bold text-lg">
+    <nav className="fixed mx-auto bottom-8 inset-x-8 bg-zinc-900 border border-zinc-800 rounded-full p-1 z-10 font-bold text-lg max-w-[36rem]">
       <ul className="flex flex-row justify-between items-center gap-2">
         <li className="w-full relative">
           <motion.button

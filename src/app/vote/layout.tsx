@@ -12,8 +12,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="font-sans h-screen fixed inset-0 flex flex-col items-center bg-theme-light">
-      <div className="flex flex-col max-w-[40rem] size-full border-4 border-theme-light">
+    <div className="font-sans h-screen fixed inset-0 flex flex-col items-center bg-background sm:py-4">
+      <div className="flex flex-col max-w-[40rem] size-full border-4 border-theme-light sm:rounded-xl overflow-hidden">
         <header className="bg-theme-light py-6 flex flex-col items-center text-theme-dark">
           <h1 className="font-display uppercase text-xl">Strikeout</h1>
           <h2 className="uppercase font-bold">
@@ -46,7 +46,7 @@ export default function RootLayout({
             </svg>
           </h2>
         </header>
-        <main className="bg-background flex flex-col text-xl px-6 py-6 h-full overflow-auto">
+        <main className="bg-background flex flex-col px-6 py-6 h-full overflow-auto">
           {children}
         </main>
         <ResultsNav />

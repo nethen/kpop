@@ -12,32 +12,32 @@ export const InvestModal = ({
 }) => {
   const router = useRouter();
 
-  const tiers = [
-    {
-      id: 1,
-      name: "Bandwagoner",
-      description:
-        "Wow. You really couldn't spare a few dollars? Guess you're not a true fan.",
-      price: 100,
-      votes: 1,
-    },
-    {
-      id: 2,
-      name: "Bandwagoner",
-      description:
-        "Wow. You really couldn't spare a few dollars? Guess you're not a true fan.",
-      price: 100,
-      votes: 1,
-    },
-    {
-      id: 3,
-      name: "Bandwagoner",
-      description:
-        "Wow. You really couldn't spare a few dollars? Guess you're not a true fan.",
-      price: 100,
-      votes: 1,
-    },
-  ];
+  // const tiers = [
+  //   {
+  //     id: 1,
+  //     name: "Bandwagoner",
+  //     description:
+  //       "Wow. You really couldn't spare a few dollars? Guess you're not a true fan.",
+  //     price: 100,
+  //     votes: 1,
+  //   },
+  //   {
+  //     id: 2,
+  //     name: "Bandwagoner",
+  //     description:
+  //       "Wow. You really couldn't spare a few dollars? Guess you're not a true fan.",
+  //     price: 100,
+  //     votes: 1,
+  //   },
+  //   {
+  //     id: 3,
+  //     name: "Bandwagoner",
+  //     description:
+  //       "Wow. You really couldn't spare a few dollars? Guess you're not a true fan.",
+  //     price: 100,
+  //     votes: 1,
+  //   },
+  // ];
 
   const handleNavigate = () => {
     localStorage.setItem("userData", JSON.stringify({ votes: tier / 10 }));
