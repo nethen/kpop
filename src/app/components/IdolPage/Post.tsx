@@ -25,8 +25,8 @@ export const Post = ({
             className=" overflow-hidden w-12 h-12 rounded-full"
             alt="profile picture"
             src={pfp}
-            width={100}
-            height={100}
+            width={64}
+            height={64}
           />
         ) : (
           <div className="w-12 h-12 rounded-full bg-amber-900"></div>
@@ -45,8 +45,8 @@ export const Post = ({
             className="w-full object-cover"
             alt="post picture"
             src={image}
-            width={100}
-            height={100}
+            width={500}
+            height={500}
           />
         )}
       </div>

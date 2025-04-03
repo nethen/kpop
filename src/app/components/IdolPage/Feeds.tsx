@@ -3,14 +3,23 @@
 import { useState } from "react";
 import { Post } from "./Post";
 
+type Post = {
+  pfp: string;
+  image?: string | undefined;
+  name: string;
+  date: string;
+  likes: string;
+  description: string;
+};
+
 type FeedsProps = {
-  pfp?: string;
-  image?: string;
+  posts: Post[];
+  comments: Post[];
 
 };
 export const Feeds = ({
-  pfp,
-  image,
+  posts,
+  comments
 }: FeedsProps) => {
   const [activeSection, setActiveSection] = useState<"liveFeed" | "investorComments">("liveFeed");
 
@@ -18,77 +27,7 @@ export const Feeds = ({
     setActiveSection(section);
   };
 
-  const posts = [
-    {
-      pfp: "/placeholderpfp.jpg",
-      image: "/placeholderpfp.jpg",
-      name: "AI DOL",
-      date: "1 day(s) ago",
-      likes: "1732",
-      description:
-        "Just worked another 12 hour shift today. Looking to keep the streak up #day37 #strikeout #AIDOL",
-    },
-    {
-      pfp: "/placeholderpfp.jpg",
-      image: undefined,
-      name: "AI DOL",
-      date: "2 day(s) ago",
-      likes: "3432",
-      description:
-        "WE’RE IN THE FINALS. LET’S GO AI DOL NATION!!! We couldn’t have done this without your support. Now let’s go for the win, go out and send us your support, we need it! 🚀🙏",
-    },
-    {
-      pfp: "/placeholderpfp.jpg",
-      image: "/placeholderpfp.jpg",
-      name: "AI DOL",
-      date: "3 day(s) ago",
-      likes: "1732",
-      description:
-        "Our latest 1.0 release of Aesop marks a momentous milestone from our company. To think we started in Matthew’s garage. #blessed",
-    },
-  ];
 
-  const comments = [
-    {
-      pfp: "/placeholderpfp.jpg",
-      name: "Alice Johnson",
-      date: "April 1, 2025",
-      likes: "40",
-      description: "Just finished an exciting new project! 🚀",
-    },
-    {
-      pfp: "/placeholderpfp.jpg",
-      image: undefined,
-      name: "Bob Smith",
-      date: "March 30, 2025",
-      likes: "40",
-      description: "Enjoying a relaxing weekend with some coffee ☕.",
-    },
-    {
-      pfp: undefined,
-      name: "Charlie Davis",
-      date: "March 28, 2025",
-      likes: "40",
-      description: "Here's a picture from my latest trip! 🏞️",
-    },
-    {
-      pfp: "/placeholderpfp.jpg",
-      name: "Diana Lee",
-      date: "March 25, 2025",
-      likes: "40",
-      description: "Excited to share some new artwork! 🎨",
-    },
-    {
-      pfp: undefined,
-      image: undefined,
-      name: "Ethan Wright",
-      date: "March 22, 2025",
-      likes: "40",
-      description: "No pictures, just thoughts: Life is a journey. 🌎",
-    },
-  ];
-
-  
 
   return (
     <>
