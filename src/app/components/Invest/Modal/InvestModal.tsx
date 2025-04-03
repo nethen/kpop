@@ -21,10 +21,7 @@ export const InvestModal = ({
   const [confirmation, setConfirmation] = useState(false);
 
   const confirmPurchase = async () => {
-    localStorage.setItem(
-      "userData",
-      JSON.stringify({ votes: votes, tier: tier })
-    );
+    localStorage.setItem("userData", JSON.stringify({ votes: votes }));
     updatePool(tierName, tier);
     setConfirmation(true);
   };
@@ -79,13 +76,13 @@ export const InvestModal = ({
         )}
         {confirmation ? (
           <p>
-            You&apos;ve just received {votes} vote{votes > 1 ? "s" : null} for
+            You&apos;ve just received {votes} vote{votes != 1 ? "s" : null} for
             the finale! Make them count.
           </p>
         ) : (
           <p>
             You&apos;re about to add ${tier.toLocaleString()} to the prize pool,
-            which will give you {votes} vote{votes > 1 ? "s" : null} for the
+            which will give you {votes} vote{votes != 1 ? "s" : null} for the
             finale.
           </p>
         )}
@@ -105,7 +102,7 @@ export const InvestModal = ({
               className="px-4 py-2 text-lg bg-theme-light text-theme-dark rounded-md font-bold cursor-pointer pointer-events-auto"
               onClick={() => confirmPurchase()}
             >
-              Purchase {votes} vote{votes > 1 ? "s" : null}
+              Purchase {votes} vote{votes != 1 ? "s" : null}
             </button>
             <button
               className="px-4 py-2 text-lg bg-zinc-600 text-white rounded-md font-bold cursor-pointer pointer-events-auto"

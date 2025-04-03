@@ -49,10 +49,10 @@ export async function fetchValueFromDatabase(id: string) {
   }
 }
 
-export async function boost(id: string, addedVotes = 1) {
+export async function boost(slug: string, addedVotes = 1) {
   try {
     const response =
-      await sql`UPDATE startups SET votes = votes + ${addedVotes} WHERE id=${id} RETURNING *`;
+      await sql`UPDATE startups SET votes = votes + ${addedVotes} WHERE slug=${slug} RETURNING *`;
     return response[0]?.votes;
   } catch (error) {
     console.log(error);

@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { InvestModal } from "../components/Invest/Modal/InvestModal";
 import { tiers } from "./tiers";
+import { AnimatePresence } from "motion/react";
 
 export default function Page() {
   const [isOpen, setIsOpen] = useState(false);
@@ -38,13 +39,17 @@ export default function Page() {
             Eliminated startups will become bankrupt.
           </p>
         </hgroup>
-        <InvestModal
-          isOpen={isOpen}
-          tierName={selectedTierName}
-          tier={selectedTier}
-          votes={voteAmount}
-          handler={() => handleClose()}
-        />
+        <AnimatePresence>
+          {isOpen && (
+            <InvestModal
+              isOpen={isOpen}
+              tierName={selectedTierName}
+              tier={selectedTier}
+              votes={voteAmount}
+              handler={() => handleClose()}
+            />
+          )}
+        </AnimatePresence>
         <section>
           <ul>
             {tiers.map((tier, i) => (
@@ -69,7 +74,7 @@ export default function Page() {
                     className="px-4 py-2 text-lg bg-theme-light text-theme-dark rounded-md font-bold mt-4 cursor-pointer"
                     onClick={() => handleSelectTier(tier.price)}
                   >
-                    Purchase {tier.votes} vote{tier.votes > 1 ? "s" : null} /
+                    Purchase {tier.votes} vote{tier.votes != 1 ? "s" : null} /
                     day
                   </button>
                   <ul className="flex flex-col gap-2">
