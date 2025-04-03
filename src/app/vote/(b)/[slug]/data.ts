@@ -1,10 +1,10 @@
 export const startupLocalData = {
     AiDol: {
       url:"aidol",  
-      name: "AI dol",
+      name: "AI DOL",
       image: "/aidolCover.jpg",
       description: "Philosophical AI Systems",
-      postCount:"12",
+      postCount:" 3",
       investorCount:"25,854",
       posts: [
         {
@@ -41,38 +41,38 @@ export const startupLocalData = {
           pfp: "/placeholderpfp.jpg",
           name: "MikeOxlong69420",
           date: "15 minutes ago",
-          likes: "40",
+          likes: "231",
           description: "Loving the content coming out from you boys! You got r/wallstreetbets cheering you guys on. Send us to the moon fellas 🚀",
         },
         {
           pfp: "/sock.jpg",
           name: "Jajoda21 - Investor",
           date: "28 minutes ago",
-          likes: "40",
+          likes: "183",
           description: "Loved listening through the entirety of the launch goals recording, truly inspiring stuff. Best 7 hours I’ve spent all month.",
         },
         {
           pfp: "/placeholderpfp.jpg",
           name: "Fuma_can - Investor",
           date: "45 minutes ago",
-          likes: "40",
+          likes: "452",
           description: "NICO UR MY FAAAAVOURITE <3 <3 <3 ",
         },
         {
           pfp: "/cheese.jpg",
           name: "Brian Hindworst- Bandwagoner",
           date: "2 hours ago",
-          likes: "40",
+          likes: "239",
           description: "After listening to their newest quarterly album, I’m genuinely hooked now. It’s not a lot but hope I was able to support!! 🙌",
         },
       ]
     },
     Uptick: {
         url:"uptick",  
-        name: "UpT!ck",
+        name: "UPT!CK",
         image: "/uptickCover.jpg",
         description: "Fintech Finance Tracker",
-        postCount:"4",
+        postCount:" 4",
         investorCount:"22,835",
         posts: [
           {
