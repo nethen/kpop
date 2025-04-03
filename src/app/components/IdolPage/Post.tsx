@@ -39,7 +39,7 @@ export const Post = ({
       </div>
 
       <p className="my-4 pl-1 text-lg text-pretty">{description}</p>
-      <div className="w-full rounded-2xl overflow-hidden">
+      <div className="w-full rounded-2xl overflow-hidden mb-4">
         {image && (
           <Image
             className="w-full object-cover"
@@ -50,7 +50,7 @@ export const Post = ({
           />
         )}
       </div>
-      <div className="flex gap-3 mt-4 pl-1">
+      <div className="flex gap-3  pl-1">
         <span className="flex gap-1 text-white/60  ">
           <svg
             xmlns="http://www.w3.org/2000/svg"

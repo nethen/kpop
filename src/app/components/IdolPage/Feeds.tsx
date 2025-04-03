@@ -12,9 +12,7 @@ export const Feeds = ({
   pfp,
   image,
 }: FeedsProps) => {
-  const [activeSection, setActiveSection] = useState<
-    "liveFeed" | "investorComments"
-  >("liveFeed");
+  const [activeSection, setActiveSection] = useState<"liveFeed" | "investorComments">("liveFeed");
 
   const handleButtonClick = (section: "liveFeed" | "investorComments") => {
     setActiveSection(section);
@@ -94,16 +92,16 @@ export const Feeds = ({
 
   return (
     <>
-     <div className="flex gap-4 ">
+     <div className="flex gap-6 ">
             <button
               onClick={() => handleButtonClick("liveFeed")}
-              className="cursor-pointer"
+              className={`cursor-pointer ${activeSection === "liveFeed"? "text-white border-b border-white" :"text-white/50"}`}
             >
               Feed
             </button>
             <button
               onClick={() => handleButtonClick("investorComments")}
-              className="cursor-pointer"
+              className={`cursor-pointer ${activeSection === "investorComments"? "text-white border-b border-white" :"text-white/50"}`}
             >
               Investor Comments
             </button>
@@ -139,7 +137,6 @@ export const Feeds = ({
       </>
        
       )}
-      =
     </>
   );
 };

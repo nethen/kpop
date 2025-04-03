@@ -46,7 +46,7 @@ export default async function Page({
             Vote for AIDOL
           </button>
         </section>
-        <section className="mt-8">
+        <section className="mt-12 ">
           <Feeds/>
 
         </section>
