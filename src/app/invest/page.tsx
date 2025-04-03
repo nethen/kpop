@@ -23,7 +23,7 @@ export default function Page() {
       <main className="p-6 flex flex-col mb-12">
         <hgroup className="mb-4">
           <h2 className="font-bold text-4xl mb-2">Add to the prize pool</h2>
-          <p className="text-lg leading-tight">
+          <p className="text-lg leading-tight mb-2">
             Your funds will be only given to Strikeout&apos;s final winner.
           </p>
           <p className="text-sm">Eliminated startups will become bankrupt.</p>

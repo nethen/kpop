@@ -56,6 +56,8 @@ export default function Page() {
         <h1 className="font-display uppercase text-5xl">Strikeout</h1>
       </header>
       <div className="flex flex-col p-8 gap-4 mb-12">
+        <h2>Prize pool</h2>
+        <span>{prizePool}</span>
         <h2>Current rankings</h2>
         <section>
           <motion.ul
