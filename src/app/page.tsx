@@ -125,12 +125,12 @@ export default function Home() {
           </ul>
         </article> */}
       </main>
-      <footer className="relative h-[32rem] bg-gradient-to-b from-transparent to-theme-light p-4 flex flex-col overflow-hidden">
+      <footer className="relative h-[32rem] bg-gradient-to-b from-transparent to-theme-light p-4 flex flex-col justify-center items-center overflow-hidden">
         <svg
           viewBox="0 0 45 36"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className="absolute aspect-square h-[90vw] -bottom-1/4"
+          className="absolute aspect-square h-[90vw] -bottom-1/4 -z-10"
         >
           <path
             d="M18.8107 35.731C6.23759 35.731 -0.414439 31.7593 0.365286 24.7174L15.4481 23.8158C13.9374 28.9571 15.4481 32.0517 19.7366 32.0517C23.0261 32.0517 25.3165 30.1754 25.3165 27.6413C25.3165 25.7651 24.0982 24.5468 18.8594 22.232L13.645 19.9172C8.45494 17.6024 6.40816 15.117 6.40816 11.2184C6.40816 3.73787 14.1323 0.156006 26.7298 0.156006C39.2785 0.156006 45.7843 4.079 44.566 10.9503L31.1401 11.9981C32.3584 6.61311 30.7746 3.8597 26.3399 3.8597C22.7824 3.8597 20.2239 5.46789 20.2239 7.8558C20.2239 9.46398 21.1986 10.4874 26.7298 12.8265L32.3584 15.1901C37.9383 17.5293 39.6927 19.9903 39.6927 23.8158C39.6927 31.6862 31.9685 35.731 18.8107 35.731Z"
@@ -150,6 +150,9 @@ export default function Home() {
             </linearGradient>
           </defs>
         </svg>
+        <h2 className="text-center font-display text-[clamp(3rem,5vw,4rem)] leading-none mb-4 text-transparent bg-gradient-to-b from-white to-theme-light bg-clip-text">
+          Diamonds form under pressure
+        </h2>
       </footer>
     </div>
   );
