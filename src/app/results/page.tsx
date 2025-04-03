@@ -6,6 +6,7 @@ import {
 } from "@/app/components/Neon/actions";
 import { motion } from "motion/react";
 import { useEffect, useState } from "react";
+import { PromoQR } from "../components/Promo/PromoQR";
 
 export default function Page() {
   // const startups = await getStartups();
@@ -24,6 +25,17 @@ export default function Page() {
     }
   };
 
+  const hues = [
+    {
+      name: "aidol",
+      color: "bg-pink-300",
+    },
+    {
+      name: "uptick",
+      color: "bg-green-300",
+    },
+  ];
+
   // Polling: fetch data every 5 seconds
   useEffect(() => {
     fetchLiveData(); // Initial fetch
@@ -37,7 +49,7 @@ export default function Page() {
   }, []);
 
   return (
-    <div className="font-sans fixed inset-0">
+    <div className="font-sans fixed inset-0 grid grid-cols-[1fr_20rem]">
       <div className="right-[10vw] -z-10 absolute aspect-square h-full flex flex-col justify-end overflow-hidden">
         <video
           width="1920"
@@ -52,14 +64,12 @@ export default function Page() {
           Your browser does not support the video tag.
         </video>
       </div>
-      <header className="p-8">
+      <header className="col-span-full p-8">
         <h1 className="font-display uppercase text-5xl">Strikeout</h1>
       </header>
-      <div className="flex flex-col p-8 gap-4 mb-12">
-        <h2>Prize pool</h2>
-        <span>{prizePool}</span>
-        <h2>Current rankings</h2>
-        <section>
+      <div className="flex flex-col p-8 gap-4 mt-auto mb-12">
+        <h2 className="font-bold text-2xl">Current rankings</h2>
+        <section className="mb-8">
           <motion.ul
             className="flex flex-col gap-8"
             initial="hidden"
@@ -73,20 +83,35 @@ export default function Page() {
                     key={`startup_item--${e.slug}`}
                     layout
                     // layoutId={`startup_item--${e.slug}`}
-                    className="text-left flex flex-col gap-2"
+                    className="text-left text-zinc-900 flex flex-col gap-2 relative z-10 mix-blend-screen"
                   >
-                    <div className="flex gap-2">
-                      <div className="size-16 rounded-full bg-pink-500" />
+                    <div className="flex gap-2 p-4 items-center">
+                      <div className="size-16 rounded-full bg-zinc-900" />
                       <hgroup>
                         <h3 className="font-bold text-3xl">{e.name}</h3>
-                        <p>Votes: {e.votes}</p>
+                        <p className="font-bold">{e.votes} votes</p>
                       </hgroup>
                     </div>
-                    <MotionBar votes={e.votes} totalVotes={totalVotes} />
+                    <MotionBar
+                      votes={e.votes}
+                      totalVotes={totalVotes}
+                      colorString={
+                        hues.find((c) => c.name == e.slug)?.color ||
+                        "bg-pink-300"
+                      }
+                    />
                   </motion.li>
                 ))}
           </motion.ul>
         </section>
+        <section>
+          <h2 className="font-bold text-2xl">Prize pool</h2>
+          <span className="font-bold text-5xl">${prizePool}</span>
+        </section>
+      </div>
+      <div className="flex flex-col p-8 mt-auto mb-12 text-center items-center">
+        <h2 className="font-bold text-2xl">Invest now</h2>
+        <PromoQR />
       </div>
     </div>
   );
@@ -94,38 +119,26 @@ export default function Page() {
 const MotionBar = ({
   votes,
   totalVotes,
+  colorString = "bg-pink-300",
 }: {
   votes: number;
   totalVotes: number;
+  colorString?: string;
 }) => {
   const percentage = (votes / totalVotes) * 100;
 
-  const [positions, setPositions] = useState(["0%", "50%", "100%"]);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      const newPositions = Array.from(
-        new Set([
-          Math.floor(Math.random() * 5) * 25,
-          Math.floor(Math.random() * 5) * 25,
-          Math.floor(Math.random() * 5) * 25,
-        ])
-      );
-      newPositions.sort((a, b) => a - b);
-      setPositions(newPositions.map((pos) => `${pos}%`));
-    }, 5000);
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <motion.div
-      className="bg-pink-300 h-16 rounded-lg mix-blend-exclusion"
+      className={` h-full rounded-lg absolute -z-10 ${
+        colorString ? colorString : "bg-pink-300"
+      }`}
       initial={{ width: "0%" }}
       animate={{
         width: totalVotes != 0 ? percentage + "%" : "0%",
-        background: `radial-gradient(var(--theme-light) ${positions[0]}, var(--theme-dark) ${positions[1]}, var(--theme-light) ${positions[2]})`,
       }}
-      transition={{ width: { delay: 1 } }}
+      transition={{
+        width: { delay: 1 },
+      }}
     />
   );
 };
