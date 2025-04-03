@@ -58,3 +58,13 @@ export async function boost(id: string, addedVotes = 1) {
     console.log(error);
   }
 }
+
+export async function updatePool(tier: string, amount: number) {
+  try {
+    const response =
+      await sql`INSERT INTO prize_pool (investment_type, investment_amount) VALUES (${tier}, ${amount})`;
+    return response[0]?.votes;
+  } catch (error) {
+    console.log(error);
+  }
+}

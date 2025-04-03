@@ -1,16 +1,24 @@
 "use client";
 import { motion } from "motion/react";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { updatePool } from "../../Neon/actions";
 export const InvestModal = ({
   isOpen,
   tier,
+  tierName,
+  votes,
   handler,
 }: {
   isOpen: boolean;
   tier: number;
+  tierName: string;
+  votes: number;
   handler: () => void;
 }) => {
   const router = useRouter();
+
+  const [confirmation, setConfirmation] = useState(false);
 
   // const tiers = [
   //   {
@@ -39,9 +47,13 @@ export const InvestModal = ({
   //   },
   // ];
 
-  const handleNavigate = () => {
-    localStorage.setItem("userData", JSON.stringify({ votes: tier / 10 }));
-    router.push("/vote");
+  const confirmPurchase = async () => {
+    localStorage.setItem(
+      "userData",
+      JSON.stringify({ votes: votes, tier: tier })
+    );
+    updatePool(tierName, tier);
+    setConfirmation(true);
   };
 
   return (
@@ -52,28 +64,84 @@ export const InvestModal = ({
       className={`fixed inset-0 bg-zinc-950/80 p-8 flex flex-col ${
         isOpen ? "pointer-events-auto" : "pointer-events-none"
       }`}
-      onClick={() => handler()}
+      // onClick={() => handler()}
     >
       <div
-        className="bg-zinc-800 border border-zinc-700 p-8 rounded-xl my-auto"
-        onClick={(e) => e.stopPropagation()}
+        className="bg-zinc-800 border border-zinc-700 p-4 rounded-xl my-auto flex flex-col gap-4 items-center text-center"
+        onClick={(e) => {
+          e.stopPropagation();
+        }}
       >
-        <h3 className="text-2xl font-bold mb-2">Invest</h3>
-        <p>You are adding ${tier.toLocaleString()} to the prize pool</p>
-        <div className="flex gap-2">
-          <button
-            className="px-4 py-2 text-lg bg-zinc-600 text-white rounded-md font-bold mt-4 cursor-pointer pointer-events-auto"
-            onClick={() => handler()}
-          >
-            Cancel
-          </button>
-          <button
-            className="px-4 py-2 text-lg bg-theme-light text-theme-dark rounded-md font-bold mt-4 cursor-pointer pointer-events-auto"
-            onClick={() => handleNavigate()}
-          >
-            Confirm
-          </button>
-        </div>
+        {confirmation ? (
+          <span className="text-sm font-medium uppercase text-white flex gap-0.5">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="size-5"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+              />
+            </svg>
+            Votes purchased
+          </span>
+        ) : (
+          <span className="text-xs font-medium uppercase px-4 py-0.5 bg-theme-light text-theme-dark rounded-full">
+            Alert
+          </span>
+        )}
+        {confirmation ? (
+          <h3 className="text-2xl font-bold leading-none">
+            Put your idols in the lead!
+          </h3>
+        ) : (
+          <h3 className="text-2xl font-bold leading-none">
+            Confirm your investment tier
+          </h3>
+        )}
+        {confirmation ? (
+          <p>
+            You&apos;ve just received {votes} vote{votes > 1 ? "s" : null} for
+            the finale! Make them count.
+          </p>
+        ) : (
+          <p>
+            You&apos;re about to add ${tier.toLocaleString()} to the prize pool,
+            which will give you {votes} vote{votes > 1 ? "s" : null} for the
+            finale.
+          </p>
+        )}
+
+        {confirmation ? (
+          <div className="flex gap-2 flex-col w-full">
+            <button
+              className="px-4 py-2 text-lg bg-theme-light text-theme-dark rounded-md font-bold cursor-pointer pointer-events-auto"
+              onClick={() => router.push("/vote")}
+            >
+              Vote now
+            </button>
+          </div>
+        ) : (
+          <div className="flex gap-2 flex-col w-full">
+            <button
+              className="px-4 py-2 text-lg bg-theme-light text-theme-dark rounded-md font-bold cursor-pointer pointer-events-auto"
+              onClick={() => confirmPurchase()}
+            >
+              Purchase {votes} vote{votes > 1 ? "s" : null}
+            </button>
+            <button
+              className="px-4 py-2 text-lg bg-zinc-600 text-white rounded-md font-bold cursor-pointer pointer-events-auto"
+              onClick={() => handler()}
+            >
+              Cancel
+            </button>
+          </div>
+        )}
       </div>
     </motion.div>
   );

@@ -6,9 +6,11 @@ import { tiers } from "./tiers";
 export default function Page() {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedTier, setSelectedTier] = useState<number>(0);
+  const [voteAmount, setVoteAmount] = useState<number>(0);
 
   const handleSelectTier = (tier: number) => {
     setSelectedTier(tier);
+    setVoteAmount(tiers.find((t) => t.price === tier)?.votes || 0);
     setIsOpen(true);
   };
 
@@ -20,15 +22,17 @@ export default function Page() {
     <div className="font-sans">
       <main className="p-6 flex flex-col mb-12">
         <hgroup className="mb-4">
-          <h2 className="font-bold text-4xl">Add to the prize pool</h2>
-          <p className="text-lg">
+          <h2 className="font-bold text-4xl mb-2">Add to the prize pool</h2>
+          <p className="text-lg leading-tight">
             Your funds will be only given to Strikeout&apos;s final winner.
           </p>
           <p className="text-sm">Eliminated startups will become bankrupt.</p>
         </hgroup>
         <InvestModal
           isOpen={isOpen}
+          tierName={tiers.find((t) => t.price === selectedTier)?.name || ""}
           tier={selectedTier}
+          votes={voteAmount}
           handler={() => handleClose()}
         />
         <section>
@@ -52,10 +56,31 @@ export default function Page() {
                     Purchase {tier.votes} vote{tier.votes > 1 ? "s" : null} /
                     day
                   </button>
-                  <ul>
+                  <ul className="flex flex-col gap-2">
                     Other perks include:
                     {tier.perks.map((perk, j) => (
-                      <li key={`tier-${i}_perk--${j}`}>{perk}</li>
+                      <li
+                        key={`tier-${i}_perk--${j}`}
+                        className="flex items-start gap-1"
+                      >
+                        <div className="my-0.5">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth={1.5}
+                            stroke="currentColor"
+                            className="size-5"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                            />
+                          </svg>
+                        </div>
+                        {perk}
+                      </li>
                     ))}
                   </ul>
                 </article>
