@@ -47,13 +47,13 @@ export default function Page() {
           <button
             type="button"
             onClick={() => router.back()}
-            className="cursor-pointer"
+            className="cursor-pointer fixed top-6 left-6 p-3 rounded-full bg-zinc-500/60 hover:bg-theme-light group transition-all duration-300 group:ease-in-out backdrop-blur-sm"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 16 16"
               fill="currentColor"
-              className="size-10"
+              className="size-8 group-hover:fill-background duration-300"
             >
               <path
                 fillRule="evenodd"
