@@ -7,6 +7,7 @@ import {
 import { motion } from "motion/react";
 import { useEffect, useState } from "react";
 import { PromoQR } from "../components/Promo/PromoQR";
+import Image from "next/image";
 
 export default function Page() {
   // const startups = await getStartups();
@@ -85,13 +86,31 @@ export default function Page() {
                     // layoutId={`startup_item--${e.slug}`}
                     className="text-left text-zinc-900 flex flex-col gap-2 relative z-10 mix-blend-screen"
                   >
-                    <div className="flex gap-2 p-4 items-center">
-                      <div className="size-16 rounded-full bg-zinc-900" />
+                    <motion.div
+                      className="flex gap-2 p-4 items-center"
+                      initial={{ opacity: 0 }}
+                      animate={{
+                        opacity: 1,
+                        transition: { staggerChildren: 0.5 },
+                      }}
+                      transition={{ delay: 0.5 }}
+                    >
+                      {/* <div className="size-16 rounded-full bg-zinc-900" />
+                       */}
+                      <Image
+                        src={`/thumbnail_${e.slug}.jpg`}
+                        alt="Logo"
+                        width={64}
+                        height={64}
+                        className="size-16 rounded-full"
+                      />
                       <hgroup>
                         <h3 className="font-bold text-3xl">{e.name}</h3>
-                        <p className="font-bold">{e.votes} votes</p>
+                        <p className="font-bold">
+                          {e.votes.toLocaleString()} votes
+                        </p>
                       </hgroup>
-                    </div>
+                    </motion.div>
                     <MotionBar
                       votes={e.votes}
                       totalVotes={totalVotes}
@@ -106,7 +125,9 @@ export default function Page() {
         </section>
         <section>
           <h2 className="font-bold text-2xl">Prize pool</h2>
-          <span className="font-bold text-5xl">${prizePool}</span>
+          <span className="font-bold text-5xl">
+            ${Number(prizePool).toLocaleString()}
+          </span>
         </section>
       </div>
       <div className="flex flex-col p-8 mt-auto mb-12 text-center items-center">
@@ -136,9 +157,11 @@ const MotionBar = ({
       animate={{
         width: totalVotes != 0 ? percentage + "%" : "0%",
       }}
-      transition={{
-        width: { delay: 1 },
-      }}
+      transition={
+        {
+          // width: { delay: 1 },
+        }
+      }
     />
   );
 };

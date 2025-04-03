@@ -6,6 +6,7 @@ import {
 } from "@/app/components/Neon/actions";
 import { useEffect, useState } from "react";
 import { motion } from "motion/react";
+import Image from "next/image";
 
 export default function Page() {
   // const startups = await getStartups();
@@ -80,7 +81,7 @@ export default function Page() {
           </motion.h2>
 
           <motion.h3 className="text-5xl font-bold" variants={item}>
-            ${prizePool}
+            ${Number(prizePool).toLocaleString()}
           </motion.h3>
         </motion.hgroup>
         <hr className="border-zinc-700 mb-4" />
@@ -103,10 +104,16 @@ export default function Page() {
                     className="text-left flex flex-col gap-2"
                   >
                     <div className="flex gap-2">
-                      <div className="size-16 rounded-full bg-pink-500" />
+                      <Image
+                        src={`/thumbnail_${e.slug}.jpg`}
+                        alt="Logo"
+                        width={64}
+                        height={64}
+                        className="size-16 rounded-full"
+                      />
                       <hgroup>
                         <h3 className="font-bold text-3xl">{e.name}</h3>
-                        <p>Votes: {e.votes}</p>
+                        <p>Votes: {e.votes.toLocaleString()}</p>
                       </hgroup>
                     </div>
                     <MotionBar votes={e.votes} totalVotes={totalVotes} />
