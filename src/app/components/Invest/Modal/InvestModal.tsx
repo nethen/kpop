@@ -80,11 +80,18 @@ export const InvestModal = ({
             the finale! Make them count.
           </p>
         ) : (
-          <p>
-            You&apos;re about to add ${tier.toLocaleString()} to the prize pool,
-            which will give you {votes} vote{votes != 1 ? "s" : null} for the
-            finale.
-          </p>
+          <>
+            <p>
+              You&apos;re about to add ${tier.toLocaleString()} to the prize
+              pool, which will give you {votes} vote{votes != 1 ? "s" : null}{" "}
+              for the finale.
+            </p>
+            <hr className="w-full border-zinc-700" />
+            <p className="font-bold text-sm tracking-wider">
+              Investment is a risk: your chosen group may not receive your
+              funding and will go bankrupt if they lose.
+            </p>
+          </>
         )}
 
         {confirmation ? (
