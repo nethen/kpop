@@ -61,13 +61,13 @@ export const InvestModal = ({
       initial={{ opacity: 0 }}
       animate={{ opacity: isOpen ? 1 : 0 }}
       exit={{ opacity: 0 }}
-      className={`fixed inset-0 bg-zinc-950/80 p-8 flex flex-col ${
-        isOpen ? "pointer-events-auto" : "pointer-events-none"
+      className={`fixed inset-0 z-1000 bg-zinc-950/80 p-8 flex-col justify-center ${
+        isOpen ? "pointer-events-auto flex" : "pointer-events-none hidden"
       }`}
       // onClick={() => handler()}
     >
       <div
-        className="bg-zinc-800 border border-zinc-700 p-4 rounded-xl my-auto flex flex-col gap-4 items-center text-center"
+        className="bg-zinc-800 border border-zinc-700 p-4 rounded-xl flex flex-col gap-4 items-center text-center"
         onClick={(e) => {
           e.stopPropagation();
         }}

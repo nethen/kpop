@@ -6,12 +6,20 @@ import { tiers } from "./tiers";
 export default function Page() {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedTier, setSelectedTier] = useState<number>(0);
+  const [selectedTierName, setSelectedTierName] = useState<string>("");
   const [voteAmount, setVoteAmount] = useState<number>(0);
 
   const handleSelectTier = (tier: number) => {
-    setSelectedTier(tier);
-    setVoteAmount(tiers.find((t) => t.price === tier)?.votes || 0);
     setIsOpen(true);
+    try {
+      setSelectedTier(tier);
+      setSelectedTierName(
+        tiers.find((t) => t.price === tier)?.name || "Unknown Tier"
+      );
+      setVoteAmount(tiers.find((t) => t.price === tier)?.votes || 0);
+    } catch (error) {
+      console.error("Error selecting tier:", error);
+    }
   };
 
   const handleClose = () => {
@@ -21,16 +29,18 @@ export default function Page() {
   return (
     <div className="font-sans">
       <main className="p-6 flex flex-col mb-12">
-        <hgroup className="mb-4">
+        <hgroup className="mb-8">
           <h2 className="font-bold text-4xl mb-2">Add to the prize pool</h2>
           <p className="text-lg leading-tight mb-2">
             Your funds will be only given to Strikeout&apos;s final winner.
           </p>
-          <p className="text-sm">Eliminated startups will become bankrupt.</p>
+          <p className="text-sm font-medium tracking-wider">
+            Eliminated startups will become bankrupt.
+          </p>
         </hgroup>
         <InvestModal
           isOpen={isOpen}
-          tierName={tiers.find((t) => t.price === selectedTier)?.name || ""}
+          tierName={selectedTierName}
           tier={selectedTier}
           votes={voteAmount}
           handler={() => handleClose()}
