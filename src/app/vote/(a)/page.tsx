@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { getStartups } from "@/app/components/Neon/actions";
 import {startupLocalData} from "@/app/vote/(b)/[slug]/data"
+import Image from "next/image";
 import { start } from "repl";
 export default async function Page() {
   // const router = useRouter();
@@ -21,11 +22,19 @@ export default async function Page() {
           <div>
             {startups && (
               <div className="w-full bg-zinc-900 border border-zinc-800 rounded-xl text-white p-4 flex flex-col text-left">
-                <div className="rounded-md bg-pink-300 w-full aspect-video mb-4" />
+                <div className="rounded-md overflow-hidden w-full aspect-video mb-4" >
+                  <Image
+                  src={startupLocalData.AiDol.image}
+                  alt="AIDOL profil picture"
+                  width={500}
+                  height={500}
+                  className="w-full"
+                  />
+                  </div>
                 <h3 className="font-bold text-2xl">{startupLocalData.AiDol.name}</h3>
                 <p>{startupLocalData.AiDol.description}</p>
                 <Link
-                  className="px-4 py-2 text-lg bg-theme-light text-theme-dark rounded-md font-bold mt-4 cursor-pointer w-fit"
+                  className="px-4 py-2 text-lg bg-theme-light text-theme-dark rounded-md font-bold mt-4 cursor-pointer w-full text-center"
                   href={"/vote/" + startupLocalData.AiDol.url}
                 >
                   Learn more
@@ -41,11 +50,19 @@ export default async function Page() {
           <div>
             {startups && (
               <div className="w-full bg-zinc-900 border border-zinc-800 rounded-xl text-white p-4 flex flex-col text-left">
-                <div className="rounded-md bg-pink-300 w-full aspect-video mb-4" />
+                <div className="rounded-md overflow-hidden w-full aspect-video mb-4 " >
+                  <Image
+                  src={startupLocalData.Uptick.image}
+                  alt="UPTICK profil picture"
+                  width={500}
+                  height={500}
+                  className="w-full "
+                  />
+                  </div>
                 <h3 className="font-bold text-2xl">{startupLocalData.Uptick.name}</h3>
                 <p>{startupLocalData.Uptick.description}</p>
                 <Link
-                  className="px-4 py-2 text-lg bg-theme-light text-theme-dark rounded-md font-bold mt-4 cursor-pointer w-fit"
+                  className="px-4 py-2 text-lg bg-theme-light text-theme-dark rounded-md font-bold mt-4 cursor-pointer w-full text-center"
                   href={"/vote/" + startupLocalData.Uptick.url}
                 >
                   Learn more
