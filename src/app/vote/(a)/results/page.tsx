@@ -7,6 +7,7 @@ import {
 import { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import Image from "next/image";
+import NumberFlow from "@number-flow/react";
 
 export default function Page() {
   // const startups = await getStartups();
@@ -81,7 +82,14 @@ export default function Page() {
           </motion.h2>
 
           <motion.h3 className="text-5xl font-bold" variants={item}>
-            ${Number(prizePool).toLocaleString()}
+            <NumberFlow
+              value={prizePool}
+              format={{
+                style: "currency",
+                currency: "USD",
+                trailingZeroDisplay: "stripIfInteger",
+              }}
+            />
           </motion.h3>
         </motion.hgroup>
         <hr className="border-zinc-700 mb-4" />
@@ -113,7 +121,9 @@ export default function Page() {
                       />
                       <hgroup>
                         <h3 className="font-bold text-3xl">{e.name}</h3>
-                        <p>Votes: {e.votes.toLocaleString()}</p>
+                        <p>
+                          Votes: <NumberFlow value={e.votes} />
+                        </p>
                       </hgroup>
                     </div>
                     <MotionBar votes={e.votes} totalVotes={totalVotes} />

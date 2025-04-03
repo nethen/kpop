@@ -8,6 +8,7 @@ import { motion } from "motion/react";
 import { useEffect, useState } from "react";
 import { PromoQR } from "../components/Promo/PromoQR";
 import Image from "next/image";
+import NumberFlow from "@number-flow/react";
 
 export default function Page() {
   // const startups = await getStartups();
@@ -107,7 +108,7 @@ export default function Page() {
                       <hgroup>
                         <h3 className="font-bold text-3xl">{e.name}</h3>
                         <p className="font-bold">
-                          {e.votes.toLocaleString()} votes
+                          <NumberFlow value={e.votes} /> votes
                         </p>
                       </hgroup>
                     </motion.div>
@@ -126,7 +127,14 @@ export default function Page() {
         <section>
           <h2 className="font-bold text-2xl">Prize pool</h2>
           <span className="font-bold text-5xl">
-            ${Number(prizePool).toLocaleString()}
+            <NumberFlow
+              value={prizePool}
+              format={{
+                style: "currency",
+                currency: "USD",
+                trailingZeroDisplay: "stripIfInteger",
+              }}
+            />
           </span>
         </section>
       </div>
