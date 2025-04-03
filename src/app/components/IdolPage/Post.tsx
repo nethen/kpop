@@ -1,4 +1,4 @@
-import { StaticImageData } from "next/image";
+// import { StaticImageData } from "next/image";
 import Image from "next/image";
 
 type PostProps = {

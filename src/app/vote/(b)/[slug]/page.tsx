@@ -16,13 +16,13 @@ import { AnimatePresence } from "motion/react";
 
 export default function Page() {
   const params = useParams();
+  const [isOpen, setIsOpen] = useState(false);
   const startup = Object.values(startupLocalData).find(
     (s) => s.url === params.slug
   );
   if (!startup) {
     return notFound();
   }
-  const [isOpen, setIsOpen] = useState(false);
 
   const handleClose = () => {
     setIsOpen(false);
