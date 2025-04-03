@@ -39,7 +39,7 @@ export const startupLocalData = {
        comments:[
         {
           pfp: "/placeholderpfp.jpg",
-          name: "MikeOxlong69420",
+          name: "MikeOxlong69420 - Super Investor",
           date: "15 minutes ago",
           likes: "231",
           description: "Loving the content coming out from you boys! You got r/wallstreetbets cheering you guys on. Send us to the moon fellas 🚀",
