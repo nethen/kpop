@@ -20,33 +20,6 @@ export const InvestModal = ({
 
   const [confirmation, setConfirmation] = useState(false);
 
-  // const tiers = [
-  //   {
-  //     id: 1,
-  //     name: "Bandwagoner",
-  //     description:
-  //       "Wow. You really couldn't spare a few dollars? Guess you're not a true fan.",
-  //     price: 100,
-  //     votes: 1,
-  //   },
-  //   {
-  //     id: 2,
-  //     name: "Bandwagoner",
-  //     description:
-  //       "Wow. You really couldn't spare a few dollars? Guess you're not a true fan.",
-  //     price: 100,
-  //     votes: 1,
-  //   },
-  //   {
-  //     id: 3,
-  //     name: "Bandwagoner",
-  //     description:
-  //       "Wow. You really couldn't spare a few dollars? Guess you're not a true fan.",
-  //     price: 100,
-  //     votes: 1,
-  //   },
-  // ];
-
   const confirmPurchase = async () => {
     localStorage.setItem(
       "userData",

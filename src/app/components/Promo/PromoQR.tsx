@@ -340,22 +340,22 @@ export const PromoQR = () => {
       <path d="M241 193H233V201H241V193Z" fill="white" />
       <path d="M241 225H233V233H241V225Z" fill="white" />
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M9 9V65H65V9H9ZM17 17H57V57H17V17Z"
         fill="white"
       />
       <path d="M49 25H25V49H49V25Z" fill="white" />
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M241 9H185V65H241V9ZM233 17V57H193V17H233Z"
         fill="white"
       />
       <path d="M225 49V25H201V49H225Z" fill="white" />
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M9 241H65V185H9V241ZM17 233V193H57V233H17Z"
         fill="white"
       />

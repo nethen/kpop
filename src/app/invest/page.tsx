@@ -50,7 +50,13 @@ export default function Page() {
             {tiers.map((tier, i) => (
               <li key={`tier--${i}`}>
                 <article className="bg-zinc-900 border border-zinc-800 text-white rounded-xl p-4 mb-4 flex flex-col gap-4">
-                  <div className="size-16 rounded-full bg-pink-500" />
+                  <div className="size-16 rounded-full">
+                    <img
+                      src={tier.svg}
+                      alt={`${tier.name} icon`}
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
                   <hgroup>
                     <h3 className="font-bold text-2xl">{tier.name}</h3>
                     <p>{tier.description}</p>

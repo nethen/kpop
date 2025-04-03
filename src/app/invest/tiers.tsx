@@ -9,6 +9,7 @@ export const tiers = [
       "Broke Enthusiast Badge – Wear your shame with pride.",
       "You can read about our networking events",
     ],
+    svg: "broken.svg",
   },
   {
     name: "Investor",
@@ -19,6 +20,7 @@ export const tiers = [
       "Clout Chaser Badge. Let everyone know you’re better than them",
       "Exclusive Startup AMA Access",
     ],
+    svg: "investor.svg",
   },
   {
     name: "Angel Investor",
@@ -30,5 +32,6 @@ export const tiers = [
       "Exclusive Startup AMA Access",
       "Networking Event Entry",
     ],
+    svg: "angel.svg",
   },
 ];
