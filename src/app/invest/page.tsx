@@ -68,7 +68,7 @@ export default function Page() {
                   </hgroup>
                   <hr className="border-zinc-800" />
                   <span className="block text-6xl font-bold">
-                    ${tier.price}
+                    ${tier.price.toLocaleString()}
                   </span>
                   <button
                     className="px-4 py-2 text-lg bg-theme-light text-theme-dark rounded-md font-bold mt-4 cursor-pointer"
