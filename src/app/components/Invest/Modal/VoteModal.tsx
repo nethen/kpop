@@ -134,7 +134,7 @@ export const VoteModal = ({
               <button
                 className="px-4 py-2 text-lg bg-theme-light text-theme-dark rounded-md font-bold cursor-pointer pointer-events-auto"
                 onClick={() => {
-                  router.push("/vote");
+                  router.push("/vote/results");
                   setHasVotes(false);
                 }}
               >
